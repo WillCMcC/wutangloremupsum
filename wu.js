@@ -18,13 +18,10 @@ function generateIpsum (ipsumlength) {
     var randomWord = full[Math.floor(full.length * Math.random())];
     paragraph.push(randomWord);
   }
-  return createString(paragraph);
-}
-
-function createString (paragraph) {
   return (paragraph.reduce(function(a,b){
     return (a + ' ' + b)
   }) + (Math.round(Math.random()) ? '.' : Math.round(Math.random()) ? '!' : '?'))
 }
+
 
 module.exports =  generateIpsum;

@@ -1,6 +1,6 @@
 {
   "name": "wutang",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wu Tang Lorem Ipsum",
   "main": "wu.js",
   "scripts": {
