@@ -2,4 +2,4 @@
 
 `npm install wutang`
 
-Takes one parameter, an `Int` and returns a Lorem Ipsum of that length, straight from the 36 chambers.
+Takes one parameter, an `Int` and returns a `String` of that length, straight from the 36 chambers.
