@@ -32,8 +32,9 @@ var generateIpsum = function(len){
   while(pp.length < len){
     if(len - pp.length < max){
       pp.push(makeSentence(len - pp.length))
+    }else{
+      pp.push(makeSentence(Math.round(max - ((max - min) * Math.random()))))
     }
-    pp.push(makeSentence(Math.round(max - ((max - min) * Math.random()))))
   }
   return pp.join(' ')
 };
@@ -41,16 +42,18 @@ var generateIpsum = function(len){
 
 
 function makeSentence(len){
-  var sentence = [];
+  if(len == 1){
+    pp.push(last[Math.floor(last.length * Math.random())].toUpperCase())
+    return ; 
+  }
   for(var i = 0; i < len - 1; i++){
     if(i == 0){
-      sentence.push(first[Math.round(first.length * Math.random())])
+      pp.push(first[Math.round(first.length * Math.random())])
     }else{
-      sentence.push(rest[Math.round(rest.length * Math.random())])
+      pp.push(rest[Math.round(rest.length * Math.random())])
     }
   }
-  sentence.push(last[Math.floor(last.length * Math.random())])
-  return sentence.join(' ');
+  pp.push(last[Math.floor(last.length * Math.random())])
 }
 
 
