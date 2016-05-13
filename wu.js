@@ -12,15 +12,45 @@ var tearz = ["(After","laughter,","comes","tears","Check","the","script,","me","
 
 var full = bringDa.concat(shameOn, clanIn, seventhChamber, canItAll, daMystery, aintNuthing, cREAM, methodMan, protectYa, tearz);
 
-function generateIpsum (ipsumlength) {
-  var paragraph = [];
-  for (var i = 0; i < ipsumlength; i ++) {
-    var randomWord = full[Math.floor(full.length * Math.random())];
-    paragraph.push(randomWord);
+first = full.filter(function(f){
+  return f[0] == f[0].toUpperCase() ?  true : false
+})
+
+last = full.filter(function(f){
+  return (f[f.length -1] == '?' || f[f.length -1] == '!' || f[f.length -1] == '.'  )?  true : false
+})
+
+rest = full.filter(function(f){
+  return ( f[0] == f[0].toUpperCase() || f[f.length -1] == '?' || f[f.length -1] == '!' || f[f.length -1] == '.'  )?  false : true
+})
+
+var pp = [];
+var max = 20;
+var min = 5;
+
+var generateIpsum = function(len){
+  while(pp.length < len){
+    if(len - pp.length < max){
+      pp.push(makeSentence(len - pp.length))
+    }
+    pp.push(makeSentence(Math.round(max - ((max - min) * Math.random()))))
   }
-  return (paragraph.reduce(function(a,b){
-    return (a + ' ' + b)
-  }) + (Math.round(Math.random()) ? '.' : Math.round(Math.random()) ? '!' : '?'))
+  return pp.join(' ')
+};
+
+
+
+function makeSentence(len){
+  var sentence = [];
+  for(var i = 0; i < len - 1; i++){
+    if(i == 0){
+      sentence.push(first[Math.round(first.length * Math.random())])
+    }else{
+      sentence.push(rest[Math.round(rest.length * Math.random())])
+    }
+  }
+  sentence.push(last[Math.floor(last.length * Math.random())])
+  return sentence.join(' ');
 }
 
 
