@@ -44,9 +44,9 @@ var generateIpsum = function(len){
 function makeSentence(len){
   if(len == 1){
     pp.push(last[Math.floor(last.length * Math.random())].toUpperCase())
-    return ; 
+    return ;
   }
-  for(var i = 0; i < len - 1; i++){
+  for(var i = 0; i < len - 2; i++){
     if(i == 0){
       pp.push(first[Math.round(first.length * Math.random())])
     }else{
@@ -55,6 +55,5 @@ function makeSentence(len){
   }
   pp.push(last[Math.floor(last.length * Math.random())])
 }
-
 
 module.exports =  generateIpsum;
