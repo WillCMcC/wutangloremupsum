@@ -29,6 +29,7 @@ var max = 20;
 var min = 5;
 
 var generateIpsum = function(len){
+  len = Math.round(len);
   while(pp.length < len){
     if(len - pp.length < max){
       pp.push(makeSentence(len - pp.length))
